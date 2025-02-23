@@ -32,6 +32,13 @@ const transactionRoutes = require("./routes/Transaction");
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/book", bookRoutes);
 app.use("/api/v1/transaction", transactionRoutes);
+app.use("/", (req, res) => {
+    res. json({
+        status: "LIBRARY MANAGEMENT SYSTEM",
+        code: 200
+    })
+})
+
 //connect to db
 const connectDB = require("./config/db");
 connectDB();
@@ -42,5 +49,5 @@ cloudinaryConnect();
 //server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port http://localhost:${PORT}`);
 });
